@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08265e">
+<title>سیستم حاضری کارمندان | شرکت احسان شیرزی</title>
+<style>
+:root{--navy:#061b49;--blue:#0758d4;--blue2:#1689ff;--gold:#e7b33d;--ink:#071c49;--line:#b7cbea;--bg:#eaf2ff;--green:#0ba84e;--orange:#ef870d;--purple:#7138d9}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#dbe9ff,#f8fbff 55%,#d9e8ff);font-family:Tahoma,Arial,sans-serif;color:var(--ink)}
+button,input,select{font:inherit}button{cursor:pointer}
+.banner{min-height:176px;position:relative;overflow:hidden;display:grid;grid-template-columns:250px 1fr 220px;align-items:center;padding:18px 28px;color:white;background:linear-gradient(110deg,#fff 0%,#eaf3ff 22%,#09285f 22%,#0a4aa5 100%);border-bottom:8px solid var(--gold)}
+.banner:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 15%,#4caaff66,transparent 27%),linear-gradient(160deg,transparent 55%,#ffffff20);pointer-events:none}
+.brand{z-index:1;color:#08245b;text-align:center;border-left:4px solid #08245b;padding-left:18px}
+.brandmark{font-size:48px;line-height:1;color:#075bd4;text-shadow:2px 3px 0 #9dcaff}
+.brand h2{font-size:27px;margin:3px 0}.brand small{font-weight:bold;letter-spacing:1px}
+.banner-title{z-index:1;text-align:center}.banner-title h1{font-size:clamp(25px,4vw,48px);margin:0 0 12px;text-shadow:0 3px 4px #0005}
+.company-pill{display:inline-block;background:linear-gradient(90deg,#071d4b,#1769d0);border:2px solid #9ccaff;border-radius:50px;padding:8px 38px;font-size:clamp(18px,2.5vw,31px);font-weight:bold;box-shadow:0 5px 14px #001a4d55}
+.motto{z-index:1;text-align:center;font-size:22px;font-weight:bold;line-height:1.8;text-shadow:0 2px 5px #00163e}
+.layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:14px;padding:14px;max-width:1800px;margin:auto}
+.sidebar{background:linear-gradient(180deg,#073d99,#061b49);border:2px solid #8abaff;border-radius:17px;padding:12px;box-shadow:0 8px 20px #06245b30;display:flex;flex-direction:column;gap:8px;min-height:650px}
+.navbtn{display:flex;align-items:center;gap:16px;text-align:right;padding:13px 15px;border-radius:13px;border:1px solid #7fb4ff88;background:linear-gradient(110deg,#092b68,#061b49);color:white;font-weight:bold;font-size:19px;box-shadow:inset 0 1px #ffffff22;min-height:61px}
+.navbtn .ico{font-size:29px;width:42px;text-align:center}.navbtn.active,.navbtn:hover{background:linear-gradient(110deg,#168cff,#0752c8);border-color:#d4eaff;box-shadow:0 4px 12px #001b5066}
+.sidebrand{margin-top:auto;color:white;text-align:center;font-family:Georgia,serif;font-style:italic;font-size:25px;line-height:1.1;padding:12px}
+main{min-width:0}.topline{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#08285f;color:white;border:1px solid #8dbdff;border-radius:12px;padding:10px 16px;margin-bottom:12px;flex-wrap:wrap}
+.topline strong{font-size:17px}.topline .time{font-size:22px;direction:ltr}
+.page{display:none}.page.active{display:block}
+.dashboard{display:grid;grid-template-columns:minmax(360px,1.15fr) minmax(350px,1fr);gap:14px}
+.panel{border:2px solid #9ebbe4;border-radius:20px;background:#f8fbff;box-shadow:0 5px 17px #082b6420;overflow:hidden}
+.panelhead{background:linear-gradient(100deg,#075bd7,#061d56);color:white;text-align:center;font-size:26px;font-weight:bold;padding:13px;border-bottom:3px solid #e6b43e}
+.scanner{padding:10px}.scanstage{min-height:390px;background:radial-gradient(ellipse at center,#34422b,#070b12 72%);border:4px solid #0a4dba;border-radius:17px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;color:white}
+.scanstage:before{content:"";position:absolute;inset:32px;border:5px solid #087bff;border-radius:16px;box-shadow:0 0 15px #168aff,inset 0 0 15px #168aff;clip-path:polygon(0 0,18% 0,18% 3%,3% 3%,3% 18%,0 18%,0 0,82% 0,100% 0,100% 18%,97% 18%,97% 3%,82% 3%,82% 0,0 82%,3% 82%,3% 97%,18% 97%,18% 100%,0 100%,0 82%,82% 100%,100% 100%,100% 82%,97% 82%,97% 97%,82% 97%);pointer-events:none}
+#reader{width:100%;max-width:520px;z-index:1}#reader video{object-fit:cover;border-radius:10px}
+.scanhint{position:absolute;bottom:15px;z-index:2;background:#0009;padding:8px 16px;border-radius:25px;font-weight:bold}
+.scanplaceholder{text-align:center;z-index:1;padding:25px}.scanplaceholder .bigqr{font-size:90px;color:#70baff}
+.scanbuttons{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:12px}
+.btn{border:0;border-radius:10px;padding:11px 17px;font-weight:bold}.primary{background:linear-gradient(100deg,#087df2,#063fa8);color:white}.gold{background:#e6b33e;color:#17264a}.pale{background:#e1edff;color:#09285f}.danger{background:#ffe4e4;color:#9b1d29}
+.scanstatus{margin:0 10px 10px;padding:10px;background:#eaf2ff;border-radius:9px;text-align:center;font-size:13px}
+.rightcol{display:grid;grid-template-rows:auto 1fr;gap:13px}.datepanel{padding:15px;background:linear-gradient(135deg,#f9fbff,#dceaff);text-align:center}
+.datepanel .date{font-size:21px;font-weight:bold}.datepanel .clock{font-size:clamp(35px,5vw,62px);font-weight:bold;direction:ltr;margin:8px 0;color:#071e53}.datepanel .solar{font-size:19px;font-weight:bold}
+.attendance-table{width:100%;border-collapse:collapse}.attendance-table th,.attendance-table td{padding:12px 8px;text-align:center;border-bottom:1px solid #cbd9ee;font-size:15px}.attendance-table th{background:#e4edfc;font-weight:bold}.attendance-table td{font-weight:bold}.arrow{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;color:white;font-size:18px}.in{background:#0ba84e}.out{background:#d92535}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:13px}.stat{border:2px solid #9ebbe4;border-radius:19px;padding:10px 8px;text-align:center;color:white;box-shadow:0 5px 13px #082b6420;min-height:126px;display:flex;align-items:center;justify-content:center;gap:12px}.stat .symbol{font-size:38px}.stat small{font-size:17px;font-weight:bold;display:block}.stat b{font-size:38px;display:block}.green{background:linear-gradient(130deg,#16c65f,#047c3b)}.blue{background:linear-gradient(130deg,#167bf2,#073da7)}.orange{background:linear-gradient(130deg,#ffad27,#d86a00)}.purple{background:linear-gradient(130deg,#9852f2,#5422bd)}
+.contentpanel{padding:20px}.contentpanel h2{margin:0 0 17px;color:#08245b}.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:13px}label{display:block;font-size:14px;margin-bottom:6px;color:#435979}input,select{width:100%;padding:12px;border:1px solid #b8cbe6;border-radius:9px;background:white;color:#10234a}.formactions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.notice{background:#fff6df;border:1px solid #e9ca78;padding:12px;border-radius:10px;line-height:1.8;margin-top:14px}
+.tablewrap{overflow:auto}table.data{width:100%;border-collapse:collapse;min-width:480px}table.data th,table.data td{padding:12px;border-bottom:1px solid #dbe5f3;text-align:right}table.data th{background:#eaf1fd}
+.footer{background:linear-gradient(90deg,#061b49,#0a4a9d);color:white;padding:13px 22px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:5px solid var(--gold);font-weight:bold}
+@media(max-width:1050px){.banner{grid-template-columns:190px 1fr 150px;padding:14px}.brand h2{font-size:21px}.motto{font-size:17px}.layout{grid-template-columns:230px 1fr}.navbtn{font-size:16px}.dashboard{grid-template-columns:1fr}.rightcol{grid-template-columns:1fr 1fr;grid-template-rows:auto}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.banner{grid-template-columns:1fr;text-align:center;gap:8px;background:linear-gradient(120deg,#eaf3ff,#0a3e8c);padding:13px}.brand{border:0;padding:0;color:white}.brandmark{font-size:35px}.brand h2{font-size:19px}.brand small{font-size:10px}.banner-title h1{font-size:25px}.company-pill{font-size:18px;padding:6px 22px}.motto{display:none}.layout{grid-template-columns:1fr;padding:8px}.sidebar{min-height:0;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:7px}.navbtn{min-height:60px;display:flex;flex-direction:column;justify-content:center;gap:2px;text-align:center;padding:5px;font-size:11px}.navbtn .ico{font-size:22px;width:auto}.sidebrand{display:none}.topline{font-size:12px}.topline .time{font-size:17px}.rightcol{grid-template-columns:1fr}.scanstage{min-height:300px}.panelhead{font-size:21px}.stats{gap:7px}.stat{min-height:100px;gap:5px;flex-direction:column}.stat .symbol{font-size:25px}.stat small{font-size:13px}.stat b{font-size:29px}.datepanel .date{font-size:16px}.datepanel .clock{font-size:42px}.attendance-table th,.attendance-table td{font-size:12px;padding:9px 4px}}
+@media print{body *{visibility:hidden!important}#printCard,#printCard *{visibility:visible!important}#printCard{display:block!important;position:absolute;top:0;left:0;width:85.6mm;height:54mm;border:1mm solid #d6a62d;border-radius:3mm;padding:3mm;text-align:center;background:white;color:#08245b}#printQr img{width:24mm!important;height:24mm!important}}
+</style>
+</head>
+<body>
+<header class="banner">
+ <div class="brand"><div class="brandmark">▰▥▰</div><h2>احسان شیرزی</h2><small>EHSAN SHIRZI COMPANY</small></div>
+ <div class="banner-title"><h1>سیستم حاضری کارمندان</h1><div class="company-pill">شرکت احسان شیرزی</div></div>
+ <div class="motto">با نظم، کار بهتر<br>با هم موفق‌تر</div>
+</header>
+<div class="layout">
+ <aside class="sidebar">
+  <button class="navbtn active" data-page="home"><span class="ico">⌂</span>صفحه اصلی</button>
+  <button class="navbtn" data-page="scan"><span class="ico">▦</span>اسکن کارت</button>
+  <button class="navbtn" data-page="employees"><span class="ico">♟</span>کارمندان</button>
+  <button class="navbtn" data-page="reports"><span class="ico">▦</span>گزارشات</button>
+  <button class="navbtn" data-page="cards"><span class="ico">▣</span>چاپ کارت</button>
+  <button class="navbtn" data-page="settings"><span class="ico">⚙</span>تنظیمات</button>
+  <button class="navbtn" data-page="about"><span class="ico">ⓘ</span>درباره ما</button>
+  <button class="navbtn" id="logout"><span class="ico">⇥</span>خروج</button>
+  <div class="sidebrand">Ehsan Shirzi<br>Company</div>
+ </aside>
+ <main>
+  <div class="topline"><span>امروز: <strong id="dateText">---</strong></span><span>ساعت: <strong class="time" id="clockText">--:--:--</strong></span><span>مدیر سیستم: <strong>نزیر بهرامی</strong></span></div>
+  <section class="page active" id="home">
+   <div class="dashboard">
+    <div class="panel">
+     <div class="panelhead">▣　اسکن کارت QR</div>
+     <div class="scanner"><div class="scanstage"><div id="reader"></div><div class="scanplaceholder" id="scanPlaceholder"><div class="bigqr">▦</div><h2>محل اسکن کارت QR</h2><p>کارت کارمند را مقابل دوربین موبایل نشان دهید.</p></div><div class="scanhint">لطفاً کارت QR خود را نشان دهید</div></div>
+      <div class="scanbuttons"><button class="btn primary" id="startScan">فعال‌کردن دوربین</button><button class="btn pale" id="stopScan">توقف اسکن</button></div><div class="scanstatus" id="scanStatus">آماده اسکن کارت حاضری</div>
+     </div>
+    </div>
+    <div class="rightcol">
+     <div class="panel datepanel"><div class="date" id="longDate">امروز</div><div class="clock" id="bigClock">09:45:32</div><div class="solar" id="solarDate"></div></div>
+     <div class="panel"><div class="panelhead">☷　آخرین حضورها</div><div class="tablewrap"><table class="attendance-table"><thead><tr><th>شماره</th><th>نام کارمند</th><th>نوع</th><th>زمان</th></tr></thead><tbody id="recentRows"></tbody></table></div></div>
+    </div>
+   </div>
+   <div class="stats">
+    <div class="stat green"><span class="symbol">⇥</span><div><small>حاضر امروز</small><b id="presentCount">0</b></div></div>
+    <div class="stat blue"><span class="symbol">♟</span><div><small>کل کارمندان</small><b id="staffCount">2</b></div></div>
+    <div class="stat orange"><span class="symbol">◷</span><div><small>تأخیر</small><b id="lateCount">0</b></div></div>
+    <div class="stat purple"><span class="symbol">✓</span><div><small>مرخصی</small><b id="leaveCount">0</b></div></div>
+   </div>
+  </section>
+  <section class="page" id="scan"><div class="panel contentpanel"><h2>اسکن کارت و ثبت ورود و خروج</h2><p>اولین اسکن روز ورود و اسکن بعدی خروج را ثبت می‌کند.</p><div id="reader2"></div><div class="formactions"><button class="btn primary" id="startScan2">فعال‌کردن دوربین</button><button class="btn pale" id="stopScan2">توقف</button></div><div class="scanstatus" id="scanStatus2">آماده اسکن</div><hr><h3>ثبت دستی</h3><div class="formgrid"><div><label>شماره کارمندی</label><input id="manualId" placeholder="مثلاً 1"></div></div><div class="formactions"><button class="btn gold" id="manualSubmit">ثبت حاضری</button></div></div></section>
+  <section class="page" id="employees"><div class="panel contentpanel"><h2>مدیریت کارمندان</h2><div class="formgrid"><div><label>شماره کارمندی</label><input id="newId" placeholder="مثلاً 3"></div><div><label>نام کارمند</label><input id="newName" placeholder="نام کامل"></div><div><label>سمت وظیفه</label><input id="newRole" placeholder="سمت"></div></div><div class="formactions"><button class="btn primary" id="addStaff">افزودن کارمند</button></div></div><div class="panel contentpanel" style="margin-top:13px"><h2>فهرست کارمندان</h2><div class="tablewrap"><table class="data"><thead><tr><th>ID</th><th>نام کارمند</th><th>سمت</th><th>عملیات</th></tr></thead><tbody id="staffRows"></tbody></table></div></div></section>
+  <section class="page" id="reports"><div class="panel contentpanel"><h2>گزارشات حاضری</h2><div class="formgrid"><div><label>از تاریخ</label><input type="date" id="fromDate"></div><div><label>تا تاریخ</label><input type="date" id="toDate"></div><div><label>کارمند</label><select id="filterStaff"></select></div></div><div class="formactions"><button class="btn primary" id="filterReport">نمایش گزارش</button><button class="btn gold" id="exportCsv">دانلود Excel (CSV)</button></div><div class="tablewrap" style="margin-top:14px"><table class="data"><thead><tr><th>تاریخ</th><th>زمان</th><th>ID</th><th>نام</th><th>نوع</th></tr></thead><tbody id="reportRows"></tbody></table></div></div></section>
+  <section class="page" id="cards"><div class="panel contentpanel"><h2>ساخت و چاپ کارت کارمند</h2><div class="formgrid"><div><label>انتخاب کارمند</label><select id="cardStaff"></select></div></div><div class="formactions"><button class="btn primary" id="makeCard">ساخت کارت QR</button><button class="btn gold" onclick="window.print()">چاپ کارت</button></div><div id="printCard" style="display:none"><h2>کارت حاضری</h2><p>شرکت احسان شیرزی</p><div id="printQr"></div><h2 id="cardName"></h2><p id="cardRole"></p><b id="cardId"></b></div><div class="notice">برای هر کارمند یک QR اختصاصی بسازید و کارت را چاپ کنید.</div></div></section>
+  <section class="page" id="settings"><div class="panel contentpanel"><h2>تنظیمات سیستم</h2><p>نام شرکت: <b>احسان شیرزی</b></p><p>مدیر سیستم: <b>نزیر بهرامی</b></p><p>نسخه نمایشی: 2.0</p><div class="notice">این نسخه اطلاعات را در حافظه همین مرورگر ذخیره می‌کند. برای استفاده هم‌زمان چند موبایل و دیتابیس مرکزی باید سرور و پایگاه داده متصل شود.</div><button class="btn danger" id="clearLogs">پاک‌کردن سوابق حاضری</button></div></section>
+  <section class="page" id="about"><div class="panel contentpanel"><h2>درباره سیستم</h2><p>سیستم حاضری کارمندان شرکت احسان شیرزی</p><p>مدیر سیستم: نزیر بهرامی</p><p>ثبت ورود و خروج با کارت QR اختصاصی کارمندان.</p></div></section>
+ </main>
+</div>
+<footer class="footer"><span>✓　نسخه 2.0 | سیستم حاضری شرکت احسان شیرزی</span><span>مدیر سیستم: نزیر بهرامی　|　مدیر مالی</span></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://unpkg.com/html5-qrcode"></script>
+<script>
+const SK='ehsan_shirzi_staff_v2',LK='ehsan_shirzi_logs_v2';let staff=JSON.parse(localStorage.getItem(SK)||'null')||[{id:'1',name:'نزیر بهرامی',role:'مدیر مالی'},{id:'2',name:'هدایت الله',role:'کارمند'}],logs=JSON.parse(localStorage.getItem(LK)||'[]'),scanner=null,lastCode='',lastAt=0;
+const $=x=>document.getElementById(x),save=()=>{localStorage.setItem(SK,JSON.stringify(staff));localStorage.setItem(LK,JSON.stringify(logs))},key=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'),safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function setStatus(s){$('scanStatus').textContent=s;$('scanStatus2').textContent=s}
+function tick(){let d=new Date();$('clockText').textContent=d.toLocaleTimeString('en-GB');$('bigClock').textContent=d.toLocaleTimeString('en-GB');$('dateText').textContent=d.toLocaleDateString('fa-AF');$('longDate').textContent='امروز: '+d.toLocaleDateString('fa-AF',{weekday:'long',day:'numeric',month:'long',year:'numeric'});$('solarDate').textContent=d.toLocaleDateString('fa-AF-u-ca-persian',{year:'numeric',month:'long',day:'numeric'})}
+function record(id){let e=staff.find(x=>x.id===String(id).trim());if(!e){setStatus('این شماره کارمندی ثبت نشده است.');return}let d=new Date(),date=key(d),today=logs.filter(x=>x.id===e.id&&x.date===date),type=!today.length||today[today.length-1].type==='خروج'?'ورود':'خروج';logs.push({id:e.id,name:e.name,role:e.role,type,date,time:d.toLocaleTimeString('en-GB'),stamp:d.getTime()});save();render();setStatus('ثبت موفق: '+e.name+' — '+type+' — '+d.toLocaleTimeString('en-GB'))}
+function render(){let today=key(new Date()),todays=logs.filter(x=>x.date===today),present=new Set(todays.filter(x=>x.type==='ورود').map(x=>x.id));$('staffCount').textContent=staff.length;$('presentCount').textContent=present.size;$('lateCount').textContent='0';$('leaveCount').textContent='0';$('recentRows').innerHTML=logs.slice(-7).reverse().map(x=>`<tr><td>${safe(x.id)}</td><td>${safe(x.name)}</td><td><span class="arrow ${x.type==='ورود'?'in':'out'}">${x.type==='ورود'?'➜':'⬅'}</span></td><td>${safe(x.time)}</td></tr>`).join('')||'<tr><td colspan="4">هنوز حضوری ثبت نشده است.</td></tr>';$('staffRows').innerHTML=staff.map(e=>`<tr><td>${safe(e.id)}</td><td>${safe(e.name)}</td><td>${safe(e.role)}</td><td><button class="btn pale" onclick="pickCard('${encodeURIComponent(e.id)}')">ساخت کارت</button> <button class="btn danger" onclick="delStaff('${encodeURIComponent(e.id)}')">حذف</button></td></tr>`).join('');let opts=staff.map(e=>`<option value="${safe(e.id)}">${safe(e.name)} — ${safe(e.id)}</option>`).join('');$('cardStaff').innerHTML=opts;$('filterStaff').innerHTML='<option value="">همه کارمندان</option>'+opts;report()}
+function report(){let f=$('fromDate').value,t=$('toDate').value,id=$('filterStaff').value;let rows=logs.filter(x=>(!f||x.date>=f)&&(!t||x.date<=t)&&(!id||x.id===id)).sort((a,b)=>b.stamp-a.stamp);$('reportRows').innerHTML=rows.map(x=>`<tr><td>${safe(x.date)}</td><td>${safe(x.time)}</td><td>${safe(x.id)}</td><td>${safe(x.name)}</td><td>${safe(x.type)}</td></tr>`).join('')||'<tr><td colspan="5">رکوردی وجود ندارد.</td></tr>'}
+function page(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.navbtn[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===id))}
+document.querySelectorAll('.navbtn[data-page]').forEach(b=>b.onclick=()=>page(b.dataset.page));$('logout').onclick=()=>alert('برای خروج، صفحه مرورگر را ببندید.');
+$('addStaff').onclick=()=>{let id=$('newId').value.trim(),name=$('newName').value.trim(),role=$('newRole').value.trim();if(!id||!name||!role)return alert('همه خانه‌ها را تکمیل کنید.');if(staff.some(x=>x.id===id))return alert('این شماره قبلاً استفاده شده است.');staff.push({id,name,role});save();render();$('newId').value=$('newName').value=$('newRole').value='';alert('کارمند اضافه شد.')};
+function delStaff(v){let id=decodeURIComponent(v);if(confirm('کارمند حذف شود؟')){staff=staff.filter(x=>x.id!==id);save();render()}}
+function pickCard(v){$('cardStaff').value=decodeURIComponent(v);page('cards');makeCard()}
+function makeCard(){let e=staff.find(x=>x.id===$('cardStaff').value);if(!e)return alert('کارمند را انتخاب کنید.');$('printCard').style.display='block';$('cardName').textContent=e.name;$('cardRole').textContent=e.role;$('cardId').textContent='شماره کارمندی: '+e.id;$('printQr').innerHTML='';if(window.QRCode)new QRCode($('printQr'),{text:'EHSAN-SHIRZI-ATTENDANCE:'+e.id,width:170,height:170,correctLevel:QRCode.CorrectLevel.H})}
+$('makeCard').onclick=makeCard;$('manualSubmit').onclick=()=>record($('manualId').value);$('filterReport').onclick=report;
+$('exportCsv').onclick=()=>{let rows=[['Date','Time','ID','Name','Type'],...logs.map(x=>[x.date,x.time,x.id,x.name,x.type])],csv='\ufeff'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n'),a=document.createElement('a'),u=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.href=u;a.download='ehsan-shirzi-attendance.csv';a.click();URL.revokeObjectURL(u)};
+$('clearLogs').onclick=()=>{if(confirm('تمام سوابق پاک شود؟')){logs=[];save();render();setStatus('سوابق پاک شد.')}};
+async function startScan(target,status){if(!window.Html5Qrcode){$(status).textContent='کتابخانه اسکن بارگذاری نشد؛ اینترنت را بررسی کنید.';return}try{if(scanner){await scanner.stop().catch(()=>{});scanner=null}scanner=new Html5Qrcode(target);let cams=await Html5Qrcode.getCameras();if(!cams.length)throw Error('دوربین پیدا نشد');let cam=cams.find(c=>/back|rear|environment/i.test(c.label))||cams[cams.length-1];await scanner.start(cam.id,{fps:10,qrbox:{width:230,height:230}},txt=>{let now=Date.now();if(txt===lastCode&&now-lastAt<2500)return;lastCode=txt;lastAt=now;let p='EHSAN-SHIRZI-ATTENDANCE:';if(txt.startsWith(p))record(txt.slice(p.length));else setStatus('این QR کارت حاضری شرکت نیست.')},()=>{});if(target==='reader')$('scanPlaceholder').style.display='none';$(status).textContent='دوربین فعال است؛ QR کارت را اسکن کنید.'}catch(e){$(status).textContent='خطا: '+e.message+' — صفحه را با HTTPS باز کنید و اجازه Camera بدهید.'}}
+async function stopScan(){if(scanner){try{await scanner.stop()}catch(e){}scanner=null}setStatus('اسکن متوقف شد.');$('scanPlaceholder').style.display='block'}
+$('startScan').onclick=()=>startScan('reader','scanStatus');$('startScan2').onclick=()=>startScan('reader2','scanStatus2');$('stopScan').onclick=stopScan;$('stopScan2').onclick=stopScan;
+let today=key(new Date());$('fromDate').value=today;$('toDate').value=today;tick();setInterval(tick,1000);render();
+</script>
+</body></html>
